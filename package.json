@@ -1,25 +1,24 @@
 {
-  "name": "academic-pages",
-  "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
+  "name": "jacob-thompson",
+  "version": "0.0.1",
+  "description": "Portfolio of Jacob A. Thompson",
   "repository": {
     "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
+    "url": "https://github.com/jacob-thompson/jacob-thompson.github.io"
   },
   "keywords": [
-    "jekyll",
-    "theme",
+    "portfolio",
+    "website",
     "minimal"
   ],
   "contributors": [
-    "Michael Rose",
-    "Robert Zupko"
+    "Jacob Thompson"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/academicpages/academicpages.github.io/issues"
+    "url": "https://github.com/jacob-thompson/jacob-thompson.github.io/issues"
   },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "homepage": "https://github.com/jacob-thompson/jacob-thompson.github.io",
   "engines": {
     "node": ">= 0.10.0"
   },
