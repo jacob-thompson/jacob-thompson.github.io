@@ -11,54 +11,17 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
-
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* A.S in Computer Science, Modesto Junior College, 2025 (expected)
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming languages: Python, C, C++, Lua, Java, JavaScript, HTML, CSS, SQL
+* Fields: Machine Learning, Artificial Intelligence, Data Science, Web Development, Game Development
+  * AI-driven applications: Chatbots, Recommendation Systems, Image Recognition
+  * Data Science: Data Analysis, Data Visualization, Data Cleaning
+  * Web Development: Full-stack development, Front-end development, Back-end development
+* Tools: Git, Github, Vim, Unity, Unreal Engine, Blender, Adobe Photoshop, Adobe Illustrator, Slack, Discord, Zoom, Microsoft Office, Google Suite 
 
-Publications
+Work experience
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* No current tech-related work experience
