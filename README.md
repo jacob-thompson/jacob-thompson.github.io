@@ -1,6 +1,6 @@
 # jacob-thompson.github.io
 
-Source code for my personal website, hosted at [jacob-thompson.github.io](https://jacob-thompson.github.io).
+Source code for [my website](https://jacob-thompson.github.io).
 
 ## Running Locally
 
