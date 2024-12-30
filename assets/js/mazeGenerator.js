@@ -31,9 +31,10 @@ function drawMaze()
         window.addEventListener("resize", function() {
             canvas.width = canvas.height = contentWrap.clientWidth;
             drawMaze();
-            if (solved)
+            if (solved) {
                 solved = false; // Redraw the solution
                 solveMaze();
+            }
         });
     }
 
