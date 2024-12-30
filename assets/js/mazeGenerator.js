@@ -7,9 +7,8 @@ var drawn = false;
 var solved = false;
 
 var canvas = document.createElement("canvas");
+var contentWrap = document.getElementsByClassName("page__content")[0];
 canvas.id = "mazeCanvas";
-canvas.width = 500;
-canvas.height = 500;
 canvas.style.border = "1px solid #000000";
 
 var solveButton = document.createElement("button");
@@ -21,12 +20,18 @@ function drawMaze()
 {
     if (!drawn) {
         var body = document.getElementsByClassName("app")[0];
+        canvas.width = canvas.height = contentWrap.clientWidth;
         body.appendChild(canvas);
 
         var buttonLine = document.getElementsByClassName("buttons")[0];
         buttonLine.appendChild(solveButton);
 
         drawn = true;
+
+        window.addEventListener("resize", function() {
+            canvas.width = canvas.height = contentWrap.clientWidth;
+            drawMaze();
+        });
     }
 
     var context = canvas.getContext("2d");
