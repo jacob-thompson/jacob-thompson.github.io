@@ -1,5 +1,6 @@
 ---
 title: "CHIP-8 Interpreter"
+date: 2024-12-29
 excerpt: "An interpreter/emulator to play CHIP-8 games.<br/><img src='/images/chip8.png'>"
 collection: portfolio
 ---

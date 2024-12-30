@@ -1,5 +1,6 @@
 ---
 title: "Maze Generator"
+date: 2024-12-30
 excerpt: "A web application that generates and solves mazes.<br/><img src='/images/mazeGenerator.png'>"
 collection: portfolio
 ---

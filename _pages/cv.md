@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "CV - Jacob A. Thompson"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -22,6 +22,18 @@ Skills
   * Web Development: Full-stack development, Front-end development, Back-end development
 * Tools: Git, Github, Vim, Unity, Unreal Engine, Blender, Adobe Photoshop, Adobe Illustrator, Slack, Discord, Zoom, Microsoft Office, Google Suite 
 
-Work experience
+Portfolio
 ======
-* No current tech-related work experience
+{% for collection in site.collections %}
+{% unless collection.output == false or collection.label == "posts" %}
+  {% capture label %}{{ collection.label }}{% endcapture %}
+  {% if label != written_label %}
+  {% capture written_label %}{{ label }}{% endcapture %}
+  {% endif %}
+{% endunless %}
+{% for post in collection.docs %}
+  {% unless collection.output == false or collection.label == "posts" %}
+  {% include archive-single.html %}
+  {% endunless %}
+{% endfor %}
+{% endfor %}
