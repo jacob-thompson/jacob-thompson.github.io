@@ -6,6 +6,10 @@ collection: portfolio
 redirect_from:
   - /mazeGenerator/
   - /mazeGenerator.html
+  - /maze-generator/
+  - /maze-generator.html
+  - /maze/
+  - /maze.html
 ---
 
 The Maze Generator uses depth-first search algorithms to generate and solve mazes. The maze generator and the maze solver are implemented in JavaScript, and the HTML5 `canvas` element is used to draw the maze. The [source code](https://github.com/jacob-thompson/jacob-thompson.github.io) is available on GitHub.
