@@ -1,6 +1,5 @@
 maze = {};
-maze.width = 100;
-maze.height = 100;
+maze.width = maze.height = 50;
 maze.grid = [];
 
 var drawn = false;
