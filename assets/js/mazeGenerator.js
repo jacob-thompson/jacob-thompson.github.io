@@ -31,6 +31,9 @@ function drawMaze()
         window.addEventListener("resize", function() {
             canvas.width = canvas.height = contentWrap.clientWidth;
             drawMaze();
+            if (solved)
+                solved = false; // Redraw the solution
+                solveMaze();
         });
     }
 
@@ -215,11 +218,13 @@ function solveMaze()
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(cellWidth / 2, cellHeight / 2);
+
     for (var i = 0; i < path.length; i++) {
         var x = path[i].x * cellWidth + cellWidth / 2;
         var y = path[i].y * cellHeight + cellHeight / 2;
         context.lineTo(x, y);
     }
+
     if (!solved) {
         context.stroke();
         solved = true;
