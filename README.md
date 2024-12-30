@@ -6,12 +6,12 @@ Source code for my personal website, hosted at [jacob-thompson.github.io](https:
 
 ### Install Dependencies
 
-#### Ubuntu/Debian
+##### Ubuntu/Debian
 ```bash
 sudo apt install ruby-dev ruby-bundler nodejs
 ```
 
-#### macOS
+##### macOS
 ```bash
 brew install ruby
 brew install node
@@ -29,12 +29,12 @@ jekyll serve -l -H localhost
 
 You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
 
-#### Build
+##### Build
 ```bash
 docker build -t jekyll-site .
 ```
 
-#### Run
+##### Run
 ```bash
 docker run -p 4000:4000 --rm -v $(pwd):/usr/src/app jekyll-site
 ```
