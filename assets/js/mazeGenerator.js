@@ -4,16 +4,17 @@ maze.grid = [];
 
 var drawn = false;
 var solved = false;
+var visualize = true;
+var drawing = false;
 
 var canvas = document.createElement("canvas");
 var contentWrap = document.getElementsByClassName("page__content")[0];
 canvas.id = "mazeCanvas";
 canvas.style.border = "1px solid #000000";
 
-var solveButton = document.createElement("button");
-solveButton.id = "solveButton";
-solveButton.innerText = "Show Solution";
-solveButton.onclick = solveMaze;
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function drawMaze()
 {
@@ -21,9 +22,6 @@ function drawMaze()
         var body = document.getElementsByClassName("app")[0];
         canvas.width = canvas.height = contentWrap.clientWidth;
         body.appendChild(canvas);
-
-        var buttonLine = document.getElementsByClassName("buttons")[0];
-        buttonLine.appendChild(solveButton);
 
         drawn = true;
 
@@ -35,6 +33,12 @@ function drawMaze()
                 solveMaze();
             }
         });
+    }
+
+    if (!drawing) {
+        document.getElementById("solveButton").disabled = false;
+    } else {
+        document.getElementById("solveButton").disabled = true;
     }
 
     var context = canvas.getContext("2d");
@@ -84,12 +88,20 @@ function drawMaze()
     context.fillRect(canvas.width - cellWidth, canvas.height - cellHeight, cellWidth - 1, cellHeight - 1);
 }
 
-function generateMaze()
+async function generateMaze()
 {
+    if (drawing)
+        return;
+
+    if (visualize)
+        drawing = true;
+
+    console.log("Generating maze...");
+
     solved = false;
 
     if (document.getElementById("solveButton") != null)
-        solveButton.innerText = "Show Solution";
+        solveButton.value = "Show Solution";
 
     for (var i = 0; i < maze.width; i++) {
         maze.grid[i] = [];
@@ -148,14 +160,22 @@ function generateMaze()
         } else {
             done = true;
         }
+
+        if (visualize) {
+            drawMaze();
+            await sleep(1);
+        }
     }
 
+    drawing = false;
     drawMaze();
     console.log("Maze generated.");
 }
 
 function solveMaze()
 {
+    if (!solved)
+        console.log("Solving maze...");
 
     var canvas = document.getElementById("mazeCanvas");
     var context = canvas.getContext("2d");
@@ -165,8 +185,8 @@ function solveMaze()
 
     try {
         for (var i = 0; i < maze.width; i++)
-            for (var j = 0; j < maze.height; j++)
-                maze.grid[i][j].visited = false;
+        for (var j = 0; j < maze.height; j++)
+        maze.grid[i][j].visited = false;
     } catch (e) {
         const link = "https://github.com/jacob-thompson/jacob-thompson.github.io/issues";
         console.log(e);
@@ -228,12 +248,25 @@ function solveMaze()
     if (!solved) {
         context.stroke();
         solved = true;
-        button.innerHTML = "Hide Solution";
+        button.value = "Hide Solution";
         console.log("Maze solved.");
     } else {
         drawMaze();
         solved = false;
-        button.innerHTML = "Show Solution";
+        button.value = "Show Solution";
         console.log("Maze solution hidden.");
+    }
+}
+
+function toggleVisualizer()
+{
+    visualize = !visualize;
+    var button = document.getElementById("visualizeButton");
+    if (visualize) {
+        button.value = "Visualize ☑";
+        console.log("Visualizer enabled.");
+    } else {
+        button.value = "Visualize ☐";
+        console.log("Visualizer disabled.");
     }
 }

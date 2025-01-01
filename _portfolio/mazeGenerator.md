@@ -14,10 +14,24 @@ redirect_from:
 
 The Maze Generator uses depth-first search algorithms to generate and solve mazes. The maze generator and the maze solver are implemented in JavaScript, and the HTML5 `canvas` element is used to draw the maze. The [source code](https://github.com/jacob-thompson/jacob-thompson.github.io) is available on GitHub.
 
-<script src="{{ base_path }}/assets/js/mazeGenerator.js"></script>
-
 <div container class="app">
     <div style="padding-bottom:10px" class="buttons">
-        <button id="generateButton" onclick="generateMaze()" >Generate Maze</button>
+        <input type="button" id="generateButton" value="Generate Maze">
+        <input type="button" id="solveButton" value="Show Solution" disabled>
+        <input type="button" id="visualizeButton" value="Visualize ☑">
     </div>
 </div>
+
+<script>
+document.getElementById("generateButton").addEventListener("click", function() {
+    generateMaze();
+});
+document.getElementById("solveButton").addEventListener("click", function() {
+    solveMaze();
+});
+document.getElementById("visualizeButton").addEventListener("click", function() {
+    toggleVisualizer();
+});
+</script>
+
+<script src="{{ base_path }}/assets/js/mazeGenerator.js"></script>
