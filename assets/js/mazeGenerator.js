@@ -26,11 +26,23 @@ function drawMaze()
         drawn = true;
 
         window.addEventListener("resize", function() {
-            canvas.width = canvas.height = contentWrap.clientWidth;
-            drawMaze();
-            if (solved) {
-                solved = false; // Redraw the solution
-                solveMaze();
+            if (drawing) {
+                canvas.width = canvas.height = contentWrap.clientWidth;
+                drawMaze();
+                if (solved) {
+                    solved = false; // Redraw the solution
+                    solveMaze();
+                }
+            } else {
+                const flag = visualize;
+                visualize = false;
+                canvas.width = canvas.height = contentWrap.clientWidth;
+                drawMaze();
+                if (solved) {
+                    solved = false; // Redraw the solution
+                    solveMaze();
+                }
+                visualize = flag;
             }
         });
     }
