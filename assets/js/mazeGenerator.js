@@ -7,8 +7,8 @@ var solved = false;
 var visualize = true;
 var drawing = false;
 
-var canvas = document.createElement("canvas");
-var contentWrap = document.getElementsByClassName("page__content")[0];
+const canvas = document.createElement("canvas");
+const contentWrap = document.getElementsByClassName("page__content")[0];
 canvas.id = "mazeCanvas";
 canvas.style.border = "1px solid #000000";
 
@@ -19,7 +19,7 @@ function sleep(ms) {
 function drawMaze()
 {
     if (!drawn) {
-        var body = document.getElementsByClassName("app")[0];
+        const body = document.getElementsByClassName("app")[0];
         canvas.width = canvas.height = contentWrap.clientWidth;
         body.appendChild(canvas);
 
@@ -41,7 +41,7 @@ function drawMaze()
         document.getElementById("solveButton").disabled = true;
     }
 
-    var context = canvas.getContext("2d");
+    const context = canvas.getContext("2d");
     context.reset();
 
     var cellWidth = canvas.width / maze.width;
@@ -51,9 +51,9 @@ function drawMaze()
 
     for (var i = 0; i < maze.width; i++) {
         for (var j = 0; j < maze.height; j++) {
-            var node = maze.grid[i][j];
-            var x = i * cellWidth;
-            var y = j * cellHeight;
+            const node = maze.grid[i][j];
+            const x = i * cellWidth;
+            const y = j * cellHeight;
 
             if (node.walls[0]) {
                 context.beginPath();
@@ -133,7 +133,7 @@ async function generateMaze()
             neighbors.push(maze.grid[currentCell.x][currentCell.y + 1]);
 
         if (neighbors.length > 0) {
-            var randomNeighbor = neighbors[Math.floor(Math.random() * neighbors.length)];
+            const randomNeighbor = neighbors[Math.floor(Math.random() * neighbors.length)];
 
             if (randomNeighbor.x < currentCell.x) {
                 currentCell.walls[3] = false;
@@ -172,16 +172,38 @@ async function generateMaze()
     console.log("Maze generated.");
 }
 
-function solveMaze()
+function drawSolution(path)
 {
-    if (!solved)
-        console.log("Solving maze...");
-
-    var canvas = document.getElementById("mazeCanvas");
-    var context = canvas.getContext("2d");
+    const canvas = document.getElementById("mazeCanvas");
+    const context = canvas.getContext("2d");
 
     var cellWidth = canvas.width / maze.width;
     var cellHeight = canvas.height / maze.height;
+
+    context.strokeStyle = "green";
+    context.lineWidth = 2;
+    context.beginPath();
+    context.moveTo(cellWidth / 2, cellHeight / 2);
+
+    for (var i = 0; i < path.length; i++) {
+        const x = path[i].x * cellWidth + cellWidth / 2;
+        const y = path[i].y * cellHeight + cellHeight / 2;
+        context.lineTo(x, y);
+    }
+
+    context.stroke();
+}
+
+async function solveMaze()
+{
+    if (drawing)
+        return;
+
+    if (visualize)
+        drawing = true
+
+    if (!solved)
+        console.log("Solving maze...");
 
     try {
         for (var i = 0; i < maze.width; i++)
@@ -231,28 +253,26 @@ function solveMaze()
             path.push(nextCell);
             currentCell = nextCell;
         }
+
+        if (visualize && !solved) {
+            drawMaze();
+            drawSolution(path);
+            await sleep(1);
+        }
     }
 
-    var button = document.getElementById("solveButton");
-    context.strokeStyle = "green";
-    context.lineWidth = 2;
-    context.beginPath();
-    context.moveTo(cellWidth / 2, cellHeight / 2);
+    drawing = false;
 
-    for (var i = 0; i < path.length; i++) {
-        var x = path[i].x * cellWidth + cellWidth / 2;
-        var y = path[i].y * cellHeight + cellHeight / 2;
-        context.lineTo(x, y);
-    }
-
+    const button = document.getElementById("solveButton");
     if (!solved) {
-        context.stroke();
         solved = true;
+        drawMaze();
+        drawSolution(path);
         button.value = "Hide Solution";
         console.log("Maze solved.");
     } else {
-        drawMaze();
         solved = false;
+        drawMaze();
         button.value = "Show Solution";
         console.log("Maze solution hidden.");
     }
@@ -261,7 +281,7 @@ function solveMaze()
 function toggleVisualizer()
 {
     visualize = !visualize;
-    var button = document.getElementById("visualizeButton");
+    const button = document.getElementById("visualizeButton");
     if (visualize) {
         button.value = "Visualize ☑";
         console.log("Visualizer enabled.");
