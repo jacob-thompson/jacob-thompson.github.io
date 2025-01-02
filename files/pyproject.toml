@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+dynamic = ["version"]
+name = "project-name"
+description = "A description of the project."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+keywords = ["keyword1", "keyword2"]
+authors = [
+    {name = "Author Name", email = ""},
+]
+maintainers = [
+    {name = "Maintainer Name", email = ""}
+]
+classifiers = []
+dependencies = ["insert_dependency_here"]
+
+[project.urls]
+"Homepage" = "https://github.com/user/repo"
+"Bug Reports" = "https://github.com/user/repo/issues"
+
+[project.gui-scripts]
+command = "src_directory.main:main"
+
+[tool.hatch.build]
+exclude = [
+    "path/to/data/to/exclude",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"

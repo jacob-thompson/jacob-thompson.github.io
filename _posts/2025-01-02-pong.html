@@ -1,0 +1,271 @@
+---
+title: 'Recreating Pong'
+date: 2025-01-02
+permalink: /posts/2025/01/pong/
+tags:
+  - pong
+  - arcade
+  - python
+  - pygame
+  - game
+  - development
+---
+
+<html>
+    <head>
+        This post documents the development of <code>pong-arcade</code>, a simple pong game developed using Python and Pygame.
+    </head>
+
+    <body>
+        <h1 style="padding-top: 35px">
+            Pong
+        </h1>
+
+        Pong is a classic game that was released in 1972. The game is a two-player game where each player controls a paddle. The objective of the game is to hit the ball past the opponent's paddle. The game ends when one player reaches 10 points.
+
+        <h1 style="padding-top: 35px">
+            Program Design
+        </h1>
+
+        The game is developed using Python and Pygame. Pong consists of one or two players and a ball. Therefore, the design of the program is based on the following objects:
+
+        <ul>
+            <li><code>Player</code>: Represents a player in the game.</li>
+            <li><code>Ball</code>: Represents the ball in the game.</li>
+            <li><code>Pong</code>: Represents the game itself.</li>
+        </ul>
+
+        <h2>
+            <code>Player</code> Class
+        </h2>
+
+        The <code>Player</code> class represents a player in the game.
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following attributes:
+            </summary>
+
+            <ul>
+                <li><code>id</code>: The ID number of the player.</li>
+                <li><code>color</code>: The color of the player.</li>
+                <li><code>score</code>: The current score of the player.</li>
+                <ul>
+                    <li>The player wins the game when their score reaches 10.</li>
+                </ul>
+                <li><code>paddle</code>: The paddle of the player.</li>
+                <ul>
+                    <li>The paddle is represented as a <a href="https://www.pygame.org/docs/ref/rect.html">pygame Rect</a> object.</li>
+                </ul>
+            </ul>
+        </details>
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following methods:
+            </summary>
+
+            <ul>
+                <li><code>__init__(self, id, color)</code>: Initializes the player with the given ID and color.</li>
+                <li><code>reset_score(self)</code>: Resets the player's score to 0.</li>
+                <li><code>set_paddle_pos(self)</code>: Sets the default position of the player's paddle.</li>
+                <li><code>ensure_in_bound_top(self)</code>: Ensures that the player's paddle does not go above the top of the screen.</li>
+                <li><code>ensure_in_bound_bot(self)</code>: Ensures that the player's paddle does not go below the bottom of the screen.</li>
+            </ul>
+        </details>
+
+        <h2>
+            <code>Ball</code> Class
+        </h2>
+
+        The <code>Ball</code> class represents the ball in the game.
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following attributes:
+            </summary>
+
+            <ul>
+                <li><code>color</code>: The color of the ball.</li>
+                <li><code>default_pos</code>: The default position of the ball.</li>
+                <li><code>size</code>: The size of the ball.</li>
+                <li><code>rect</code>: The ball's position and size.</li>
+                <ul>
+                    <li>The ball is represented as a <a href="https://www.pygame.org/docs/ref/rect.html">pygame Rect</a> object.</li>
+                </ul>
+                <li><code>default_speed</code>: The default speed of the ball.</li>
+                <li><code>top_edge_line</code>: The top edge of the screen.</li>
+                <li><code>bot_edge_line</code>: The bottom edge of the screen.</li>
+                <li><code>edge_flag</code>: The flag to indicate if the ball is at the top or bottom edge of the screen.</li>
+                <li><code>paddle_flag</code>: The flag to indicate if the ball is at the paddle.</li>
+            </ul>
+
+        </details>
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following methods:
+            </summary>
+
+            <ul>
+                <li><code>__init__(self, color)</code>: Initializes the ball with the given color.</li>
+                <li><code>reset_position(self)</code>: Resets the ball's position to the default position.</li>
+                <li><code>reset_movement(self)</code>: Resets the ball's movement to the default speed.</li>
+                <li><code>reset_flags(self)</code>: Resets the ball's flags.</li>
+                <li><code>reset(self)</code>: Resets the ball's position, movement, and flags.</li>
+                <li><code>increase_speed(self)</code>: Increments the speed of the ball.</li>
+                <li><code>get_collision_point(self, paddle)</code>: Returns the collision point of the ball with the paddle.</li>
+                <li><code>trajectory(self)</code>: Calculates the trajectory of the ball.</li>
+                <li><code>bounce_off_edges(self)</code>: Bounces the ball off the top and bottom edges of the screen.</li>
+                <li><code>bounce_off_paddles(self, paddle1, paddle2)</code>: Bounces the ball off the paddles.</li>
+                <li><code>shift_pos_horizontal(self)</code>: Shifts the ball's position horizontally.</li>
+                <li><code>shift_pos_vertical(self)</code>: Shifts the ball's position vertically.</li>
+                <li><code>move(self)</code>: Moves the ball.</li>
+            </ul>
+        </details>
+
+        <h2>
+            <code>Pong</code> Class
+        </h2>
+
+        The <code>Pong</code> class represents the game itself.
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following attributes:
+            </summary>
+
+            <ul>
+                <li><code>surface</code>: The game's display surface.</li>
+                <li><code>clock</code>: The game's clock.</li>
+                <ul>
+                    <li>The clock is represented as a <a href="https://www.pygame.org/docs/ref/time.html#pygame.time.Clock">pygame Clock</a> object.</li>
+                </ul>
+                <li><code>dir</code>: The directory of the game.</li>
+                <li><code>file</code>: The file of the game.</li>
+                <li><code>font</code>: The font of the game.</li>
+                <li><code>font_big</code>: The big font of the game.</li>
+                <li><code>font_small</code>: The small font of the game.</li>
+                <li><code>font_tiny</code>: The tiny font of the game.</li>
+                <li><code>sound_paddle</code>: The sound of the ball hitting a paddle.</li>
+                <li><code>sound_wall</code>: The sound of the ball hitting a wall.</li>
+                <li><code>sound_score</code>: The sound of a scoring play.</li>
+                <li><code>help_rect</code>: Represents the help menu item.</li>
+                <li><code>opt1_rect</code>: Represents the first menu item.</li>
+                <li><code>opt2_rect</code>: Represents the second menu item.</li>
+                <li><code>opt3_rect</code>: Represents the third menu item.</li>
+                <li><code>show_help_menu</code>: The flag to indicate if the help menu is shown.</li>
+                <li><code>opt1_selected</code>: The flag to indicate if the first menu item is selected.</li>
+                <li><code>opt2_selected</code>: The flag to indicate if the second menu item is selected.</li>
+                <li><code>opt3_selected</code>: The flag to indicate if the third menu item is selected.</li>
+                <li><code>show_menu</code>: The flag to indicate if the menu is shown.</li>
+                <li><code>paused</code>: The flag to indicate if the game is paused.</li>
+                <li><code>show_win_screen</code>: The flag to indicate if the win screen is shown.</li>
+                <li><code>running</code>: The flag to indicate if the game is running.</li>
+                <li><code>bg_color</code>: The background color of the game.</li>
+                <li><code>fg_color</code>: The foreground color of the game.</li>
+                <li><code>red</code>: The red color of the game.</li>
+                <li><code>blue</code>: The blue color of the game.</li>
+                <li><code>p1</code>: The first <code>Player</code> of the game.</li>
+                <li><code>p2</code>: The second <code>Player</code> of the game.</li>
+                <li><code>ball</code>: The <code>Ball</code> for the game.</li>
+            </ul>
+        </details>
+
+        <details style="padding-top: 10px">
+            <summary>
+                The class contains the following methods:
+            </summary>
+
+            <ul>
+                <li><code>__init__(self, lightmode=False)</code>: Initializes the game.</li>
+                <li><code>set_window_properties(self)</code>: Sets the window properties of the game.</li>
+                <li><code>print_info(self)</code>: Prints the information of the game.</li>
+                <li><code>reset_game(self)</code>: Resets the game.</li>
+                <li><code>start_new_game(self)</code>: Starts a new game.</li>
+                <li><code>menu_keyboard_select(self)</code>: Handles the keyboard selection in the menu.</li>
+                <li><code>menu_mouse_select(self)</code>: Handles the mouse selection in the menu.</li>
+                <li><code>go_to_menu(self)</code>: Goes to the menu.</li>
+                <li><code>toggle_pause(self)</code>: Toggles a game pause.</li>
+                <li><code>handle_event(self, event)</code>: Handles a game event.</li>
+                <li><code>is_winner(self, player)</code>: Determines if a player is a winner.</li>
+                <li><code>game_in_progress(self)</code>: Determines if the game is in progress.</li>
+                <li><code>give_victory(self, player)</code>: Gives victory to a player.</li>
+                <li><code>check_for_winner(self)</code>: Checks for a winner of the game.</li>
+                <li><code>check_for_score(self)</code>: Checks for a scoring play.</li>
+                <li><code>tick(self)</code>: Updates the game clock.</li>
+                <li><code>ensure_boundaries(self)</code>: Ensures that the paddles do not go out of bounds.</li>
+                <li><code>ai_paddle_movement(self)</code>: Moves the opposing paddle in single-player mode.</li>
+                <li><code>update_paddle_positions(self)</code>: Updates the paddle positions.</li>
+                <li><code>update_ball_position(self)</code>: Updates the ball position.</li>
+                <li><code>draw_background(self)</code>: Draws the background of the game.</li>
+                <li><code>draw_center_line(self)</code>: Draws the center line of the game.</li>
+                <li><code>draw_ball(self)</code>: Draws the ball of the game.</li>
+                <li><code>draw_scores(self)</code>: Draws the scores of the game.</li>
+                <li><code>draw_paddles(self)</code>: Draws the paddles of the game.</li>
+                <li><code>draw_game(self)</code>: Draws the game.</li>
+                <li><code>draw_title(self)</code>: Draws the title screen of the game in the menu.</li>
+                <li><code>draw_options(self)</code>: Draws the game's options menu.</li>
+                <li><code>draw_info(self)</code>: Draws the game's information.</li>
+                <li><code>draw_menu(self)</code>: Draws the game's menu.</li>
+                <li><code>draw_arrow(self)</code>: Draws an arrow on the screen.</li>
+                <li><code>draw_help_arrows(self)</code>: Draws the arrows in the help menu.</li>
+                <li><code>draw_help_text(self)</code>: Draws the text in the help menu.</li>
+                <li><code>draw_help_menu(self)</code>: Draws the help menu.</li>
+                <li><code>draw_paused_screen(self)</code>: Draws the paused screen.</li>
+                <li><code>draw_win_screen(self)</code>: Draws the win screen.</li>
+                <li><code>draw_frame(self)</code>: Draws the frame of the game.</li>
+                <li><code>update_frame(self)</code>: Updates the frame of the game.</li>
+            </ul>
+        </details>
+
+        <h2>
+            Main Script Logic
+        </h2>
+
+        The <a href="https://github.com/jacob-thompson/pong-arcade/blob/main/src/pong_arcade/main.py">main script</a> logic is as follows:
+
+        <pre>
+            <code>
+Initialize the game
+Start the game loop
+    Handle events
+    Update object positions
+    Draw the game
+    Update the display
+            </code>
+        </pre>
+
+        <h1>
+            What I Learned -- Python Packaging
+        </h1>
+
+        The main thing that I learned from this project was Python packaging. I learned how to build a Python package, and I then learned how to publish this Python package to <a href="https://pypi.org/">PyPI</a>.<br>
+
+        <br>Packaging Python projects can be rather confusing at first. There are many tools and libraries available, and it can be difficult to decide which one to use. I found the <a href="https://pypi.org/project/hatchling/">hatchling</a> build backend to be a good tool for building Python packages.<br>
+
+        <br>The reason I chose <a href="https://pypi.org/project/hatchling/">hatchling</a> is because I wanted to keep all of my package configuration information in the <a href="https://github.com/jacob-thompson/pong-arcade/blob/main/pyproject.toml">pyproject.toml</a> file. This file is easy to read and understand, and it keeps all of the configuration information in one place. Another reason I chose this build backend is because there already exists an ecosystem of helpful plugins. In this project, I used the <a href="https://github.com/ofek/hatch-vcs">hatch-vcs</a> plugin to help with version control.
+
+        <h2>
+            pyproject.toml
+        </h2>
+
+        My pyproject.toml file may be useful to you if you are looking to package a similar Python project. <a href="https://pypi.org/">PyPI</a> offers a nice <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">guide</a> for those looking to learn how to package Python projects.<br>
+
+        <br><a href="/files/pyproject.toml">Click here to download a sample pyproject.toml configuration</a> that uses the <code>hatchling</code> build backend with the <code>hatch-vcs</code> plugin to assist with version control.<br>
+
+        <br>If your pyproject.toml and project structure are correct, you can build and install your package by running the following commands:<br><br>
+
+        <code>
+            python3 -m build<br>
+            python3 -m pip install dist/*.tar.gz
+        </code>
+
+        <h1 style="padding-top: 35px">
+            Conclusion
+        </h1>
+
+        I hope you enjoyed reading about <code>pong-arcade</code> and Python packaging. If you have any questions or feedback, feel free to reach out to me.
+
+    </body>
+</html>
