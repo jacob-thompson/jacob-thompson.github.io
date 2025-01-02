@@ -11,7 +11,7 @@ requires-python = ">=3.7"
 license = {file = "LICENSE"}
 keywords = ["keyword1", "keyword2"]
 authors = [
-    {name = "Author Name", email = ""},
+    {name = "Author Name", email = ""}
 ]
 maintainers = [
     {name = "Maintainer Name", email = ""}
@@ -29,6 +29,7 @@ command = "src_directory.main:main"
 [tool.hatch.build]
 exclude = [
     "path/to/data/to/exclude",
+    "path/to/other/data/to/exclude"
 ]
 
 [tool.hatch.version]
