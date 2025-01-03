@@ -32,45 +32,34 @@ tags:
         </h1>
 
         <p>
-            The game is developed using Python and Pygame. Pong consists of one or two players and a ball. Therefore, the design of the program is based on the following objects:
+            The game is developed using Python and Pygame. Pong consists of one or two players and a ball. Therefore, the design of the program is based on three types of objects: <code>Player</code>, <code>Ball</code>, and <code>Pong</code>.
         </p>
 
-        <ul>
-            <li><code>Player</code>: Represents a player in the game.</li>
-            <li><code>Ball</code>: Represents the ball in the game.</li>
-            <li><code>Pong</code>: Represents the game itself.</li>
-        </ul>
-
         <h2>
-            <code>Player</code> Class
+            Player
         </h2>
 
         <p>
-            The <code>Player</code> class represents a player in the game.
+            The <code>Player</code> object represents a player in the game.
         </p>
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following attributes:
+                Click here to show its attributes:
             </summary>
 
             <ul>
                 <li><code>id</code>: The ID number of the player.</li>
                 <li><code>color</code>: The color of the player.</li>
                 <li><code>score</code>: The current score of the player.</li>
-                <ul>
-                    <li>The player wins the game when their score reaches 10.</li>
-                </ul>
-                <li><code>paddle</code>: The paddle of the player.</li>
-                <ul>
-                    <li>The paddle is represented as a <a href="https://www.pygame.org/docs/ref/rect.html">pygame Rect</a> object.</li>
-                </ul>
+                <li><code>winner</code>: The flag to indicate if the player is the winner.</li>
+                <li><code>paddle</code>: The paddle of the player. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
             </ul>
         </details>
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following methods:
+                Click here to show its methods:
             </summary>
 
             <ul>
@@ -83,27 +72,24 @@ tags:
         </details>
 
         <h2>
-            <code>Ball</code> Class
+            Ball
         </h2>
 
         <p>
-            The <code>Ball</code> class represents the ball in the game.
+            The <code>Ball</code> object represents the ball in the game.
         </p>
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following attributes:
+                Click here to show its attributes:
             </summary>
 
             <ul>
-                <li><code>color</code>: The color of the ball.</li>
                 <li><code>default_pos</code>: The default position of the ball.</li>
-                <li><code>size</code>: The size of the ball.</li>
-                <li><code>rect</code>: The ball's position and size.</li>
-                <ul>
-                    <li>The ball is represented as a <a href="https://www.pygame.org/docs/ref/rect.html">pygame Rect</a> object.</li>
-                </ul>
+                <li><code>rect</code>: The ball's position and size. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
                 <li><code>default_speed</code>: The default speed of the ball.</li>
+                <li><code>x_diff</code>: The derivative of the ball's x-coordinate.</li>
+                <li><code>y_diff</code>: The derivative of the ball's y-coordinate.</li>
                 <li><code>top_edge_line</code>: The top edge of the screen.</li>
                 <li><code>bot_edge_line</code>: The bottom edge of the screen.</li>
                 <li><code>edge_flag</code>: The flag to indicate if the ball is at the top or bottom edge of the screen.</li>
@@ -114,7 +100,7 @@ tags:
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following methods:
+                Click here to show its methods:
             </summary>
 
             <ul>
@@ -135,37 +121,34 @@ tags:
         </details>
 
         <h2>
-            <code>Pong</code> Class
+            Pong
         </h2>
 
         <p>
-            The <code>Pong</code> class represents the game itself.
+            The <code>Pong</code> object represents the game itself.
         </p>
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following attributes:
+                Click here to show its attributes:
             </summary>
 
             <ul>
                 <li><code>surface</code>: The game's display surface.</li>
-                <li><code>clock</code>: The game's clock.</li>
-                <ul>
-                    <li>The clock is represented as a <a href="https://www.pygame.org/docs/ref/time.html#pygame.time.Clock">pygame Clock</a> object.</li>
-                </ul>
+                <li><code>clock</code>: The game's clock. (<a href="https://www.pygame.org/docs/ref/time.html#pygame.time.Clock">pygame.time.Clock</a>)</li>
                 <li><code>dir</code>: The directory of the game.</li>
                 <li><code>file</code>: The file of the game.</li>
-                <li><code>font</code>: The font of the game.</li>
-                <li><code>font_big</code>: The big font of the game.</li>
-                <li><code>font_small</code>: The small font of the game.</li>
-                <li><code>font_tiny</code>: The tiny font of the game.</li>
-                <li><code>sound_paddle</code>: The sound of the ball hitting a paddle.</li>
-                <li><code>sound_wall</code>: The sound of the ball hitting a wall.</li>
-                <li><code>sound_score</code>: The sound of a scoring play.</li>
-                <li><code>help_rect</code>: Represents the help menu item.</li>
-                <li><code>opt1_rect</code>: Represents the first menu item.</li>
-                <li><code>opt2_rect</code>: Represents the second menu item.</li>
-                <li><code>opt3_rect</code>: Represents the third menu item.</li>
+                <li><code>font</code>: The font of the game. (<a href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font">pygame.font.Font</a>)</li>
+                <li><code>font_big</code>: The big font of the game. (<a href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font">pygame.font.Font</a>)</li>
+                <li><code>font_small</code>: The small font of the game. (<a href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font">pygame.font.Font</a>)</li>
+                <li><code>font_tiny</code>: The tiny font of the game. (<a href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font">pygame.font.Font</a>)</li>
+                <li><code>sound_paddle</code>: The sound of the ball hitting a paddle. (<a href="https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound">pygame.mixer.Sound</a>)</li>
+                <li><code>sound_wall</code>: The sound of the ball hitting a wall. (<a href="https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound">pygame.mixer.Sound</a>)</li>
+                <li><code>sound_score</code>: The sound of a scoring play. (<a href="https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound">pygame.mixer.Sound</a>)</li>
+                <li><code>help_rect</code>: Represents the help menu item. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
+                <li><code>opt1_rect</code>: Represents the first menu item. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
+                <li><code>opt2_rect</code>: Represents the second menu item. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
+                <li><code>opt3_rect</code>: Represents the third menu item. (<a href="https://www.pygame.org/docs/ref/rect.html">pygame.Rect</a>)</li>
                 <li><code>show_help_menu</code>: The flag to indicate if the help menu is shown.</li>
                 <li><code>opt1_selected</code>: The flag to indicate if the first menu item is selected.</li>
                 <li><code>opt2_selected</code>: The flag to indicate if the second menu item is selected.</li>
@@ -186,11 +169,17 @@ tags:
 
         <details style="padding-top: 10px">
             <summary>
-                The class contains the following methods:
+                Click here to show its methods:
             </summary>
 
             <ul>
                 <li><code>__init__(self, lightmode=False)</code>: Initializes the game.</li>
+                <ul>
+                    <li>Run <code>pong</code> with any argument to enable light mode.</li>
+                    <ul>
+                        <li><code>pong 1</code></li>
+                    </ul>
+                </ul>
                 <li><code>set_window_properties(self)</code>: Sets the window properties of the game.</li>
                 <li><code>print_info(self)</code>: Prints the information of the game.</li>
                 <li><code>reset_game(self)</code>: Resets the game.</li>
