@@ -13,7 +13,9 @@ tags:
 
 <html>
     <head>
-        This post documents the development of <code>pong-arcade</code>, a simple pong game developed using Python and Pygame.
+        <strong style="font-size: 16px">
+            This post documents the development of <code>pong-arcade</code>, a simple pong game developed using Python and Pygame.
+        </strong>
     </head>
 
     <body>
@@ -21,13 +23,17 @@ tags:
             Pong
         </h1>
 
-        Pong is a classic game that was released in 1972. The game is a two-player game where each player controls a paddle. The objective of the game is to hit the ball past the opponent's paddle. The game ends when one player reaches 10 points.
+        <p>
+            Pong is a classic game that was released in 1972. The game is a two-player game where each player controls a paddle. The objective of the game is to hit the ball past the opponent's paddle. The game ends when one player reaches 10 points.
+        </p>
 
-        <h1 style="padding-top: 35px">
+        <h1>
             Program Design
         </h1>
 
-        The game is developed using Python and Pygame. Pong consists of one or two players and a ball. Therefore, the design of the program is based on the following objects:
+        <p>
+            The game is developed using Python and Pygame. Pong consists of one or two players and a ball. Therefore, the design of the program is based on the following objects:
+        </p>
 
         <ul>
             <li><code>Player</code>: Represents a player in the game.</li>
@@ -39,7 +45,9 @@ tags:
             <code>Player</code> Class
         </h2>
 
-        The <code>Player</code> class represents a player in the game.
+        <p>
+            The <code>Player</code> class represents a player in the game.
+        </p>
 
         <details style="padding-top: 10px">
             <summary>
@@ -78,7 +86,9 @@ tags:
             <code>Ball</code> Class
         </h2>
 
-        The <code>Ball</code> class represents the ball in the game.
+        <p>
+            The <code>Ball</code> class represents the ball in the game.
+        </p>
 
         <details style="padding-top: 10px">
             <summary>
@@ -128,7 +138,9 @@ tags:
             <code>Pong</code> Class
         </h2>
 
-        The <code>Pong</code> class represents the game itself.
+        <p>
+            The <code>Pong</code> class represents the game itself.
+        </p>
 
         <details style="padding-top: 10px">
             <summary>
@@ -240,21 +252,33 @@ Start the game loop
             What I Learned -- Python Packaging
         </h1>
 
-        The main thing that I learned from this project was Python packaging. I learned how to build a Python package, and I then learned how to publish this Python package to <a href="https://pypi.org/">PyPI</a>.<br>
+        <p>
+            The main thing that I learned from this project was Python packaging. I learned how to build a Python package, and I then learned how to publish this Python package to <a href="https://pypi.org/">PyPI</a>.
+        </p>
 
-        <br>Packaging Python projects can be rather confusing at first. There are many tools and libraries available, and it can be difficult to decide which one to use. I found the <a href="https://pypi.org/project/hatchling/">hatchling</a> build backend to be a good tool for building Python packages.<br>
+        <p>
+            Packaging Python projects can be rather confusing at first. There are many tools and libraries available, and it can be difficult to decide which one to use. I found the <a href="https://pypi.org/project/hatchling/">hatchling</a> build backend to be a good tool for building Python packages.
+        </p>
 
-        <br>The reason I chose <a href="https://pypi.org/project/hatchling/">hatchling</a> is because I wanted to keep all of my package configuration information in the <a href="https://github.com/jacob-thompson/pong-arcade/blob/main/pyproject.toml">pyproject.toml</a> file. This file is easy to read and understand, and it keeps all of the configuration information in one place. Another reason I chose this build backend is because there already exists an ecosystem of helpful plugins. In this project, I used the <a href="https://github.com/ofek/hatch-vcs">hatch-vcs</a> plugin to help with version control.
+        <p>
+            The reason I chose <a href="https://pypi.org/project/hatchling/">hatchling</a> is because I wanted to keep all of my package configuration information in the <a href="https://github.com/jacob-thompson/pong-arcade/blob/main/pyproject.toml">pyproject.toml</a> file. This file is easy to read and understand, and it keeps all of the configuration information in one place. Another reason I chose this build backend is because there already exists an ecosystem of helpful plugins. In this project, I used the <a href="https://github.com/ofek/hatch-vcs">hatch-vcs</a> plugin to help with version control.
+        </p>
 
         <h2>
             pyproject.toml
         </h2>
 
-        My pyproject.toml file may be useful to you if you are looking to package a similar Python project. <a href="https://pypi.org/">PyPI</a> offers a nice <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">guide</a> for those looking to learn how to package Python projects.<br>
+        <p>
+            My pyproject.toml file may be useful to you if you are looking to package a similar Python project. <a href="https://pypi.org/">PyPI</a> offers a nice <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">guide</a> for those looking to learn how to package Python projects.<br>
+        </p>
 
-        <br><a href="/files/pyproject.toml">Click here to download a sample pyproject.toml configuration</a> that uses the <code>hatchling</code> build backend with the <code>hatch-vcs</code> plugin to assist with version control.<br>
+        <p>
+            <a href="/files/pyproject.toml">Click here to download a sample pyproject.toml configuration</a> that uses the <code>hatchling</code> build backend with the <code>hatch-vcs</code> plugin to assist with version control.
+        </p>
 
-        <br>If your pyproject.toml and project structure are correct, you can build and install your package by running the following commands:<br><br>
+        <p>
+            If your pyproject.toml and project structure are correct, you can build and install your package by running the following commands:
+        </p>
 
         <code>
             python3 -m build<br>
@@ -265,7 +289,9 @@ Start the game loop
             Conclusion
         </h1>
 
-        I hope you enjoyed reading about <code>pong-arcade</code> and Python packaging. If you have any questions or feedback, feel free to reach out to me.
+        <p>
+            I hope you enjoyed reading about <code>pong-arcade</code> and Python packaging. If you have any questions or feedback, feel free to reach out to me.
+        </p>
 
     </body>
 </html>
