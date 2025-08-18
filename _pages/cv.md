@@ -13,9 +13,9 @@ Education
 ======
 * A.S in Computer Science, Modesto Junior College, 2025
 * B.S in Computer Science, University of California, Santa Cruz, 2027 (expected)
-<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
-  <img style="margin-bottom: 10px;" src="/images/mjc_logo.png" alt="Modesto Junior College Emblem" width="200px" height="200px">
-  <img style="margin-bottom: 10px;" src="/images/ucsc_logo.png" alt="University of California, Santa Cruz Emblem" width="200px" height="200px">
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 25px;">
+  <img style="margin-bottom: 10px;" src="/images/mjc_logo.png" alt="Modesto Junior College Emblem" width="150px" height="150px">
+  <img style="margin-bottom: 10px;" src="/images/ucsc_logo.png" alt="University of California, Santa Cruz Emblem" width="150px" height="150px">
 </div>
 
 Skills
