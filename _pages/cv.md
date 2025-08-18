@@ -11,17 +11,11 @@ redirect_from:
 
 Education
 ======
-<div style="display: flex; justify-content: space-between;">
-  <div style="display: flex; flex-direction: column;">
-    <ul>
-      <li> A.S in Computer Science, Modesto Junior College, 2025</li>
-      <li> B.S in Computer Science, University of California, Santa Cruz, 2027 (expected)</li>
-    </ul>
-  </div>
-  <div style="display: flex; flex-direction: column; align-items: flex-end;">
-    <img style="margin-bottom: 10px;" src="/images/mjc_logo.png" alt="Modesto Junior College Emblem" width="160px" height="160px">
-    <img src="/images/ucsc_logo.png" alt="University of California, Santa Cruz Emblem" width="160px" height="160px">
-  </div>
+* A.S in Computer Science, Modesto Junior College, 2025
+* B.S in Computer Science, University of California, Santa Cruz, 2027 (expected)
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
+  <img style="margin-bottom: 10px;" src="/images/mjc_logo.png" alt="Modesto Junior College Emblem" width="200px" height="200px">
+  <img style="margin-bottom: 10px;" src="/images/ucsc_logo.png" alt="University of California, Santa Cruz Emblem" width="200px" height="200px">
 </div>
 
 Skills
