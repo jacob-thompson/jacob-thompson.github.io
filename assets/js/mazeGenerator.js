@@ -16,18 +16,22 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function resizeCanvas() {
+    canvas.width = canvas.height = contentWrap.clientWidth;
+}
+
 function drawMaze()
 {
     if (!drawn) {
         const body = document.getElementsByClassName("app")[0];
-        canvas.width = canvas.height = contentWrap.clientWidth;
+        resizeCanvas();
         body.appendChild(canvas);
 
         drawn = true;
 
         window.addEventListener("resize", function() {
             if (drawing) {
-                canvas.width = canvas.height = contentWrap.clientWidth;
+                resizeCanvas();
                 drawMaze();
                 if (solved) {
                     solved = false; // Redraw the solution
@@ -36,7 +40,7 @@ function drawMaze()
             } else {
                 const flag = visualize;
                 visualize = false;
-                canvas.width = canvas.height = contentWrap.clientWidth;
+                resizeCanvas();
                 drawMaze();
                 if (solved) {
                     solved = false; // Redraw the solution
