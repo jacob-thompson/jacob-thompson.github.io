@@ -1,9 +1,11 @@
 ---
 title: "pong-arcade"
-date: 2025-01-01
-excerpt: "Single-player & local multi-player pong.<br/><img src='/images/pong.png'>"
+date: 2022-10-17
+excerpt: "Single-player & local multi-player pong.<br/><a href='/portfolio/pong-arcade'><img src='/images/pong.png'></a>"
 collection: portfolio
 redirect_from:
+  - /pong-arcade/
+  - /pong-arcade.html
   - /pong/
   - /pong.html
 ---

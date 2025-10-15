@@ -1,9 +1,11 @@
 ---
 title: "xcalculator"
-date: 2025-01-01
-excerpt: "A basic calculator app.<br/><img src='/images/xcalc.png'>"
+date: 2024-09-07
+excerpt: "A basic calculator app.<br/><a href='/portfolio/xcalculator'><img src='/images/xcalc.png'></a>"
 collection: portfolio
 redirect_from:
+  - /xcalculator/
+  - /xcalculator.html
   - /calculator/
   - /calculator.html
   - /calc/

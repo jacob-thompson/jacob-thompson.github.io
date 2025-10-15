@@ -1,7 +1,7 @@
 ---
 title: "Maze Generator"
 date: 2024-12-30
-excerpt: "A web application that generates and solves mazes.<br/><img src='/images/mazeGenerator.png'>"
+excerpt: "A web application that generates and solves mazes.<br/><a href='/portfolio/mazeGenerator'><img style='padding: 15px' src='/images/mazeGenerator.png'></a>"
 collection: portfolio
 redirect_from:
   - /mazeGenerator/
@@ -12,7 +12,7 @@ redirect_from:
   - /maze.html
 ---
 
-The Maze Generator uses depth-first search algorithms to generate & solve mazes, and allows users to visualize these processes. The generator, solver, and visualizer are built in [JavaScript](/assets/js/mazeGenerator.js), and the HTML5 `canvas` element is used to draw the maze. All source code is available on [GitHub](https://github.com/jacob-thompson/jacob-thompson.github.io).
+The Maze Generator uses depth-first search algorithms to generate & solve mazes, and allows users to visualize these processes. The generator, solver, and visualizer are built in [JavaScript](/assets/js/mazeGenerator.js), and the HTML5 `canvas` element is used to draw the maze. All relevant source code is available on [GitHub](https://github.com/jacob-thompson/jacob-thompson.github.io).
 
 <div container class="app">
     <div style="padding-bottom:10px" class="buttons">
