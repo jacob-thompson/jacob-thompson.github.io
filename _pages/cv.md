@@ -25,13 +25,16 @@ Education
 
 Skills
 ======
-* Programming languages: Python, C, C++, Lua, Java, JavaScript, HTML, SQL
+* Programming Languages: Python, C, C++, Lua, Java, JavaScript, HTML, SQL
 * Fields: Game Development, Emulator Development, Data Science
     * Game Development: Experience creating games using tools such as Simple DirectMedia Layer (SDL).
     * Emulator Development: Experience with reverse engineering and low-level programming to create and optimize emulators for gaming consoles.
     * Data Science: Experience with data analysis and visualization.
 * Tools: Git, Github, Neovim
-* Open Source: TODO
+* Open Source Contributions
+    * [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io)
+    * [Chatterino/chatterino2](https://github.com/Chatterino/chatterino2)
+    * [pixeltris/TwitchAdSolutions](https://github.com/pixeltris/TwitchAdSolutions)
 
 Portfolio
 ======
