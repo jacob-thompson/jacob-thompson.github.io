@@ -14,3 +14,7 @@ Gemfile.lock
 # Ingore files created by npm
 node_modules
 package-lock.json
+
+# Ignore bundler vendor directory
+vendor/bundle
+.bundle
