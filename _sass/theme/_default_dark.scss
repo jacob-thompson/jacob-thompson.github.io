@@ -43,6 +43,8 @@ html[data-theme="dark"] {
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-gray};
     --global-fig-caption-color          : #{$light-gray};
+    --global-input-background-color     : #{$background-light};
+    --global-input-text-color           : #{$text};
     --global-link-color                 : #{$link};
     --global-link-color-hover           : #{$link-dark};
     --global-link-color-visited         : #{$link-light};
