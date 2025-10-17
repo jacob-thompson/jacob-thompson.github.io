@@ -16,7 +16,7 @@ let determineComputedTheme = () => {
   if (themeSetting != "system") {
     return themeSetting;
   }
-  return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  return (userPref && userPref("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
 };
 
 // detect OS/browser preference
@@ -51,8 +51,8 @@ var toggleTheme = () => {
    Plotly integration script so that Markdown codeblocks will be rendered
    ========================================================================== */
 
-// Read the Plotly data from the code block, hide it, and render the chart as new node. This allows for the
-// JSON data to be retrieve when the theme is switched. The listener should only be added if the data is
+// Read the Plotly data from the code block, hide it, and render the chart as new node. This allows for the 
+// JSON data to be retrieve when the theme is switched. The listener should only be added if the data is 
 // actually present on the page.
 import { plotlyDarkLayout, plotlyLightLayout } from './theme.js';
 let plotlyElements = document.querySelectorAll("pre>code.language-plotly");
@@ -86,7 +86,7 @@ if (plotlyElements.length > 0) {
    ========================================================================== */
 
 $(document).ready(function () {
-  // SCSS SETTINGS - These should be the same as the settings in the relevant files
+  // SCSS SETTINGS - These should be the same as the settings in the relevant files 
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
