@@ -34,7 +34,7 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Dark theme for the site */
+/* Light theme for the site */
 :root {
     --global-base-color                 : #{$background};
     --global-bg-color                   : #{$background};
@@ -44,6 +44,8 @@ $sidebar-screen-min-width   : 1024px;
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-primary-color};
     --global-fig-caption-color          : #{$light-primary-color};
+    --global-input-background-color     : #fff;
+    --global-input-text-color           : #{$text};
     --global-link-color                 : #{$link};
     --global-link-color-hover           : #{$link-dark};
     --global-link-color-visited         : #{$link-light};
