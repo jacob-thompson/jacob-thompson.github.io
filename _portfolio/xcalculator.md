@@ -1,6 +1,5 @@
 ---
 title: "xcalculator"
-image: /images/xcalc.png
 date: 2024-09-07
 excerpt: "A basic calculator app.<br/><a href='/portfolio/xcalculator'><img src='/images/xcalc.png'></a>"
 collection: portfolio
