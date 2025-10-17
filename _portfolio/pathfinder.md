@@ -1,5 +1,6 @@
 ---
 title: "pathfinder"
+image: /images/pathfinder.png
 date: 2025-04-12
 excerpt: "Visualizes pathfinding algorithms in customizable space.<br/><a href='/portfolio/pathfinder'><img src='/images/pathfinder.png'></a>"
 collection: portfolio
