@@ -1,5 +1,8 @@
 ---
 title: "vim-compilerun"
+image:
+    path: /images/compilerun.png
+    alt: compilerun screenshot
 date: 2025-01-07
 excerpt: "A Vim plugin to quickly compile and run scripts.<br/><a href='/portfolio/compilerun'><img src='/images/compilerun.png'></a>"
 collection: portfolio

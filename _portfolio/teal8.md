@@ -1,5 +1,8 @@
 ---
 title: "teal8"
+image:
+    path: /images/teal8.png
+    alt: teal8 screenshot
 date: 2025-10-10
 excerpt: "An interpreter/emulator to play CHIP-8 games.<br/><a href='/portfolio/teal8'><img src='/images/teal8.png'></a>"
 collection: portfolio
