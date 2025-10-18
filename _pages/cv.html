@@ -1,0 +1,77 @@
+---
+layout: archive
+title: "CV - Jacob A. Thompson"
+permalink: /cv/
+author_profile: true
+redirect_from:
+  - /resume
+---
+
+{% include base_path %}
+
+<h1 style = "padding-bottom: 10px; padding-top: 10px">
+    Education
+</h1>
+
+<ul>
+    <li>A.S in Computer Science, Modesto Junior College, 2025</li>
+    <li>B.S in Computer Science, University of California, Santa Cruz, 2027 (expected)</li>
+</ul>
+
+<h3 style = "padding-bottom: 5px">
+    Awards
+</h3>
+
+<ul>
+    <li>Modesto Junior College President's List, Fall 2024</li>
+    <li>Modesto Junior College President's List, Spring 2025</li>
+</ul>
+
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px;">
+    <a href="https://mjc.edu/">
+        <img style="padding: 10px;" src="/images/mjc_logo.png" alt="Modesto Junior College Emblem" width="150px" height="150px">
+    </a>
+
+    <a href="https://ucsc.edu/">
+        <img style="padding: 10px;" src="/images/ucsc_logo.png" alt="University of California, Santa Cruz Emblem" width="150px" height="150px">
+    </a>
+</div>
+
+<h1 style = "padding-bottom: 15px; padding-top: 5px">
+    Skills
+</h1>
+
+<ul style = "padding-bottom: 10px">
+    <li>Programming Languages: Python, C, C++, Lua, Java, JavaScript, HTML, SQL</li>
+    <li>Fields: Game Development, Emulator Development, Data Science</li>
+    <ul>
+        <li>Game Development: Creating games using tools such as Simple DirectMedia Layer (SDL)</li>
+        <li>Emulator Development: Reverse engineering and low-level programming to create and optimize emulators for gaming consoles</li>
+        <li>Data Science: Data analysis and visualization</li>
+    </ul>
+    <li>Tools: Git, Github, Neovim</li>
+    <li>Open Source Contributions</li>
+    <ul>
+        <li>[academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io)</li>
+        <li>[Chatterino/chatterino2](https://github.com/Chatterino/chatterino2)</li>
+        <li>[pixeltris/TwitchAdSolutions](https://github.com/pixeltris/TwitchAdSolutions)</li>
+    </ul>
+</ul>
+
+<h1 style = "margin-bottom: -10px">
+    Portfolio
+</h1>
+
+{% for collection in site.collections reversed %}
+{% unless collection.output == false or collection.label == "posts" %}
+  {% capture label %}{{ collection.label }}{% endcapture %}
+  {% if label != written_label %}
+  {% capture written_label %}{{ label }}{% endcapture %}
+  {% endif %}
+{% endunless %}
+{% for post in collection.docs reversed %}
+  {% unless collection.output == false or collection.label == "posts" %}
+  {% include archive-single.html %}
+  {% endunless %}
+{% endfor %}
+{% endfor %}
