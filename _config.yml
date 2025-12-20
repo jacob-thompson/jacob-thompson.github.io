@@ -179,6 +179,8 @@ exclude:
   - log
   - node_modules
   - package.json*
+  - _portfolio/quickrun*
+  - _portfolio/xcalc*
   - Rakefile
   - README
   - tmp
